@@ -1,0 +1,222 @@
+[
+  {
+    "id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    "name": "Llama 3.1 8B Instruct",
+    "family": "Llama 3.1",
+    "size": "small",
+    "best_for": ["chat", "rag", "summarization", "instruction-following"],
+    "latency_tier": "fast",
+    "cost_tier": "cheap",
+    "context_length": 128000,
+    "notes": "Meta's state-of-the-art 8B model with incredible 128k context and robust instruction following."
+  },
+  {
+    "id": "meta-llama/Meta-Llama-3.1-70B-Instruct",
+    "name": "Llama 3.1 70B Instruct",
+    "family": "Llama 3.1",
+    "size": "large",
+    "best_for": ["chat", "reasoning", "coding", "agents", "rag", "multilingual"],
+    "latency_tier": "medium",
+    "cost_tier": "moderate",
+    "context_length": 128000,
+    "notes": "A powerhouse open-weight model rivaling closed-source frontier models in reasoning and general knowledge."
+  },
+  {
+    "id": "mistralai/Mistral-7B-Instruct-v0.3",
+    "name": "Mistral 7B Instruct v0.3",
+    "family": "Mistral",
+    "size": "small",
+    "best_for": ["chat", "summarization", "instruction-following"],
+    "latency_tier": "fast",
+    "cost_tier": "cheap",
+    "context_length": 32768,
+    "notes": "Extremely fast and lightweight model with extended vocabulary and native function calling capabilities."
+  },
+  {
+    "id": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "name": "Mixtral 8x7B Instruct",
+    "family": "Mistral",
+    "size": "large",
+    "best_for": ["chat", "rag", "reasoning", "multilingual"],
+    "latency_tier": "fast",
+    "cost_tier": "moderate",
+    "context_length": 32768,
+    "notes": "High-quality Sparse Mixture of Experts model offering GPT-3.5 level performance at blazing fast speeds."
+  },
+  {
+    "id": "mistralai/Mistral-Nemo-Instruct-2407",
+    "name": "Mistral Nemo 12B Instruct",
+    "family": "Mistral",
+    "size": "medium",
+    "best_for": ["chat", "multilingual", "rag", "reasoning"],
+    "latency_tier": "fast",
+    "cost_tier": "cheap",
+    "context_length": 128000,
+    "notes": "Built in collaboration with Nvidia, featuring a 128k context window and state-of-the-art multilingual performance."
+  },
+  {
+    "id": "Qwen/Qwen2.5-7B-Instruct",
+    "name": "Qwen 2.5 7B Instruct",
+    "family": "Qwen 2.5",
+    "size": "small",
+    "best_for": ["chat", "coding", "reasoning", "multilingual", "instruction-following"],
+    "latency_tier": "fast",
+    "cost_tier": "cheap",
+    "context_length": 128000,
+    "notes": "Alibaba's exceptional 7B model packed with enhanced coding and mathematical capabilities."
+  },
+  {
+    "id": "Qwen/Qwen2.5-72B-Instruct",
+    "name": "Qwen 2.5 72B Instruct",
+    "family": "Qwen 2.5",
+    "size": "large",
+    "best_for": ["chat", "coding", "reasoning", "agents", "multilingual"],
+    "latency_tier": "medium",
+    "cost_tier": "moderate",
+    "context_length": 128000,
+    "notes": "One of the absolute top open-source models globally, dominating coding, math, and instruction benchmarks."
+  },
+  {
+    "id": "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "name": "Qwen 2.5 Coder 32B Instruct",
+    "family": "Qwen 2.5",
+    "size": "large",
+    "best_for": ["coding", "agents", "reasoning", "instruction-following"],
+    "latency_tier": "medium",
+    "cost_tier": "moderate",
+    "context_length": 128000,
+    "notes": "Specialized coding powerhouse that matches or exceeds frontier models on code generation and debugging."
+  },
+  {
+    "id": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+    "name": "DeepSeek-R1 Distill Llama 8B",
+    "family": "DeepSeek-R1",
+    "size": "medium",
+    "best_for": ["reasoning", "coding", "chat"],
+    "latency_tier": "fast",
+    "cost_tier": "cheap",
+    "context_length": 32768,
+    "notes": "Distilled from DeepSeek-R1 onto Llama 3.1 8B, delivering remarkable reasoning and chain-of-thought capabilities."
+  },
+  {
+    "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+    "name": "DeepSeek-R1 Distill Qwen 32B",
+    "family": "DeepSeek-R1",
+    "size": "large",
+    "best_for": ["reasoning", "coding", "agents"],
+    "latency_tier": "medium",
+    "cost_tier": "moderate",
+    "context_length": 65536,
+    "notes": "Superb distilled reasoning model offering elite math and logic problem solving in a 32B package."
+  },
+  {
+    "id": "microsoft/Phi-3-mini-4k-instruct",
+    "name": "Phi-3 Mini 4K Instruct",
+    "family": "Phi-3",
+    "size": "small",
+    "best_for": ["chat", "summarization", "instruction-following"],
+    "latency_tier": "fast",
+    "cost_tier": "cheap",
+    "context_length": 4096,
+    "notes": "Microsoft's 3.8B lightweight giant, heavily trained on synthetic data for exceptional punch-per-parameter."
+  },
+  {
+    "id": "microsoft/Phi-3-medium-128k-instruct",
+    "name": "Phi-3 Medium 128K Instruct",
+    "family": "Phi-3",
+    "size": "medium",
+    "best_for": ["chat", "rag", "reasoning", "summarization"],
+    "latency_tier": "fast",
+    "cost_tier": "cheap",
+    "context_length": 128000,
+    "notes": "14B parameter model featuring a massive 128k context length, perfect for complex document RAG."
+  },
+  {
+    "id": "google/gemma-2-9b-it",
+    "name": "Gemma 2 9B IT",
+    "family": "Gemma 2",
+    "size": "medium",
+    "best_for": ["chat", "reasoning", "summarization", "instruction-following"],
+    "latency_tier": "fast",
+    "cost_tier": "cheap",
+    "context_length": 8192,
+    "notes": "Google's highly efficient architecture that outperforms models twice its size on core benchmarks."
+  },
+  {
+    "id": "google/gemma-2-27b-it",
+    "name": "Gemma 2 27B IT",
+    "family": "Gemma 2",
+    "size": "medium",
+    "best_for": ["chat", "reasoning", "coding", "multilingual"],
+    "latency_tier": "medium",
+    "cost_tier": "moderate",
+    "context_length": 8192,
+    "notes": "A highly robust, dense 27B model built on Google's advanced training infrastructure."
+  },
+  {
+    "id": "NousResearch/Hermes-3-Llama-3.1-8B",
+    "name": "Hermes 3 Llama 3.1 8B",
+    "family": "Hermes",
+    "size": "medium",
+    "best_for": ["agents", "chat", "instruction-following"],
+    "latency_tier": "fast",
+    "cost_tier": "cheap",
+    "context_length": 128000,
+    "notes": "Trained specifically for advanced tool use, structured output, and autonomous agent workflows."
+  },
+  {
+    "id": "NousResearch/Hermes-3-Llama-3.1-70B",
+    "name": "Hermes 3 Llama 3.1 70B",
+    "family": "Hermes",
+    "size": "large",
+    "best_for": ["agents", "reasoning", "coding", "chat"],
+    "latency_tier": "medium",
+    "cost_tier": "moderate",
+    "context_length": 128000,
+    "notes": "The ultimate open-weights agent model, offering unmatched reliability in multi-step function calling."
+  },
+  {
+    "id": "CohereForAI/c4ai-command-r-plus-08-2024",
+    "name": "Command R+ (08-2024)",
+    "family": "Command R+",
+    "size": "large",
+    "best_for": ["rag", "agents", "multilingual", "summarization"],
+    "latency_tier": "slow",
+    "cost_tier": "expensive",
+    "context_length": 128000,
+    "notes": "Cohere's state-of-the-art enterprise model purpose-built for multi-hop RAG and complex tool use."
+  },
+  {
+    "id": "01-ai/Yi-1.5-34B-Chat",
+    "name": "Yi 1.5 34B Chat",
+    "family": "Yi 1.5",
+    "size": "large",
+    "best_for": ["chat", "multilingual", "summarization"],
+    "latency_tier": "medium",
+    "cost_tier": "moderate",
+    "context_length": 32768,
+    "notes": "Excellent bilingual (English/Chinese) model with strong reasoning and creative writing abilities."
+  },
+  {
+    "id": "codellama/CodeLlama-34b-Instruct-hf",
+    "name": "Code Llama 34B Instruct",
+    "family": "Code Llama",
+    "size": "large",
+    "best_for": ["coding", "instruction-following"],
+    "latency_tier": "medium",
+    "cost_tier": "moderate",
+    "context_length": 16384,
+    "notes": "Meta's specialized code assistant trained on massive codebases for autocompletion and debugging."
+  },
+  {
+    "id": "meta-llama/Meta-Llama-3.1-405B-Instruct",
+    "name": "Llama 3.1 405B Instruct",
+    "family": "Llama 3.1 405B",
+    "size": "large",
+    "best_for": ["reasoning", "coding", "agents", "rag", "multilingual", "summarization", "chat", "instruction-following"],
+    "latency_tier": "slow",
+    "cost_tier": "expensive",
+    "context_length": 128000,
+    "notes": "The premier open-weights frontier model, delivering absolute top-tier intelligence across all domains."
+  }
+]
