@@ -76,4 +76,4 @@ Deploying to Streamlit Cloud is completely free and takes under 5 minutes.
 
 * GitHub: [github.com/placeholder](#)
 * LinkedIn: [linkedin.com/in/placeholder](#)
-* Twitter: [twitter.com/placeholder](#)
+* Twitter: [twitter.com/placeholder](#)**Live demo:** https://inference-compass.streamlit.app
