@@ -69,7 +69,7 @@ with st.sidebar:
     """)
     st.markdown("---")
     st.markdown("[Featherless AI Docs](https://featherless.ai/docs)")
-            st.markdown("[GitHub Repository](https://github.com/jAIdeep-Murthy/inference-compass)")
+    st.markdown("[GitHub Repository](https://github.com/jAIdeep-Murthy/inference-compass)")
 
 # Load catalog
 try:
