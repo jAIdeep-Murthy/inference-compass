@@ -9,6 +9,18 @@ from models import load_catalog
 from recommender import get_recommendations
 from utils import get_api_key, generate_api_snippet, run_live_inference
 
+def get_infra_hint(model) -> str:
+    if model.latency_tier == "fast" and model.cost_tier == "cheap":
+        return "🏗️ Infra note: Ideal for high-volume, latency-sensitive workloads."
+    elif model.latency_tier == "fast" and model.cost_tier == "moderate":
+        return "🏗️ Infra note: Strong throughput with moderate cost — good for production APIs."
+    elif model.latency_tier == "medium" and model.size == "large":
+        return "🏗️ Infra note: Premium quality with acceptable latency for backend tasks."
+    elif model.latency_tier == "slow" or model.cost_tier == "expensive":
+        return "🏗️ Infra note: Best for offline jobs or low-QPS endpoints where quality is critical."
+    else:
+        return "🏗️ Infra note: Balanced profile — suitable for general-purpose production use."
+
 # Configure Streamlit page layout and title
 st.set_page_config(
     page_title="Inference Compass",
@@ -78,16 +90,50 @@ except Exception as e:
     st.error(f"Failed to load model catalog: {e}")
     catalog = []
 
+if "use_case_text" not in st.session_state:
+    st.session_state["use_case_text"] = ""
+if "priority" not in st.session_state:
+    st.session_state["priority"] = "Speed"
+if "context_need" not in st.session_state:
+    st.session_state["context_need"] = "Short (<4k)"
+if "task_types" not in st.session_state:
+    st.session_state["task_types"] = ["chat"]
+
 # -----------------------------------------------------------------------------
 # SECTION 1 — Describe your use case
 # -----------------------------------------------------------------------------
 st.header("1. Describe your use case")
+
+st.markdown("**Quick start — pick a persona:**")
+preset_col1, preset_col2, preset_col3, _ = st.columns([1, 1, 1, 3])
+
+with preset_col1:
+    if st.button("⚡ Indie Hacker"):
+        st.session_state["use_case_text"] = "I'm building a coding assistant for my side project"
+        st.session_state["priority"] = "Speed"
+        st.session_state["context_need"] = "Short (<4k)"
+        st.session_state["task_types"] = ["chat", "coding"]
+
+with preset_col2:
+    if st.button("🚀 Startup Founder"):
+        st.session_state["use_case_text"] = "I'm building a RAG chatbot over my product docs"
+        st.session_state["priority"] = "Cost"
+        st.session_state["context_need"] = "Medium (4k–32k)"
+        st.session_state["task_types"] = ["chat", "rag", "summarization"]
+
+with preset_col3:
+    if st.button("🏢 Enterprise MLE"):
+        st.session_state["use_case_text"] = "I'm building an internal research assistant over long PDFs"
+        st.session_state["priority"] = "Quality"
+        st.session_state["context_need"] = "Long (>32k)"
+        st.session_state["task_types"] = ["rag", "reasoning", "agents"]
 
 col1, col2 = st.columns([2, 1])
 
 with col1:
     use_case_text = st.text_area(
         "What are you building?",
+        value=st.session_state["use_case_text"],
         placeholder="e.g. a RAG chatbot for legal documents, a coding assistant, a multilingual summarizer",
         height=130
     )
@@ -95,13 +141,15 @@ with col1:
 with col2:
     priority_raw = st.selectbox(
         "What matters most?",
-        options=["Speed", "Cost", "Quality"]
+        options=["Speed", "Cost", "Quality"],
+        index=["Speed", "Cost", "Quality"].index(st.session_state["priority"])
     )
     priority = priority_raw.lower()
 
     context_need_raw = st.selectbox(
         "How much context do you need?",
-        options=["Short (<4k)", "Medium (4k–32k)", "Long (>32k)"]
+        options=["Short (<4k)", "Medium (4k–32k)", "Long (>32k)"],
+        index=["Short (<4k)", "Medium (4k–32k)", "Long (>32k)"].index(st.session_state["context_need"])
     )
     if "Short" in context_need_raw:
         context_need = "short"
@@ -113,8 +161,13 @@ with col2:
 task_types = st.multiselect(
     "Task types",
     options=["chat", "coding", "rag", "reasoning", "summarization", "multilingual", "agents"],
-    default=["chat"]
+    default=st.session_state["task_types"]
 )
+
+st.session_state["use_case_text"] = use_case_text
+st.session_state["priority"] = priority_raw
+st.session_state["context_need"] = context_need_raw
+st.session_state["task_types"] = task_types
 
 submit_button = st.button("Find My Model →", type="primary")
 
@@ -155,6 +208,7 @@ else:
             
             # Reason
             st.markdown(f"*{rec.reason}*")
+            st.caption(get_infra_hint(model))
             
             # Expander for API snippet
             with st.expander("Copy API snippet"):
