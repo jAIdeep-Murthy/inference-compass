@@ -102,6 +102,14 @@ def get_recommendations(
             score += 3
             priority_boost_reason = "Elite reasoning quality"
 
+        # Context alignment bonus
+        if context_need == "long" and model.context_length >= 65536:
+            score += 2
+        elif context_need == "short" and model.context_length <= 8192:
+            score += 2
+        elif context_need == "medium" and 4096 <= model.context_length <= 32768:
+            score += 2
+
         # Construct human-readable reason
         if not priority_boost_reason:
             priority_boost_reason = f"{model.latency_tier.capitalize()} latency & {model.cost_tier} cost"

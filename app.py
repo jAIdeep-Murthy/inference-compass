@@ -131,43 +131,41 @@ with preset_col3:
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    use_case_text = st.text_area(
+    st.text_area(
         "What are you building?",
-        value=st.session_state["use_case_text"],
+        key="use_case_text",
         placeholder="e.g. a RAG chatbot for legal documents, a coding assistant, a multilingual summarizer",
         height=130
     )
 
 with col2:
-    priority_raw = st.selectbox(
+    st.selectbox(
         "What matters most?",
         options=["Speed", "Cost", "Quality"],
-        index=["Speed", "Cost", "Quality"].index(st.session_state["priority"])
+        key="priority"
     )
-    priority = priority_raw.lower()
+    priority = st.session_state["priority"].lower()
 
-    context_need_raw = st.selectbox(
+    st.selectbox(
         "How much context do you need?",
         options=["Short (<4k)", "Medium (4k–32k)", "Long (>32k)"],
-        index=["Short (<4k)", "Medium (4k–32k)", "Long (>32k)"].index(st.session_state["context_need"])
+        key="context_need"
     )
-    if "Short" in context_need_raw:
+    if "Short" in st.session_state["context_need"]:
         context_need = "short"
-    elif "Medium" in context_need_raw:
+    elif "Medium" in st.session_state["context_need"]:
         context_need = "medium"
     else:
         context_need = "long"
 
-task_types = st.multiselect(
+st.multiselect(
     "Task types",
     options=["chat", "coding", "rag", "reasoning", "summarization", "multilingual", "agents"],
-    default=st.session_state["task_types"]
+    key="task_types"
 )
 
-st.session_state["use_case_text"] = use_case_text
-st.session_state["priority"] = priority_raw
-st.session_state["context_need"] = context_need_raw
-st.session_state["task_types"] = task_types
+use_case_text = st.session_state["use_case_text"]
+task_types = st.session_state["task_types"]
 
 submit_button = st.button("Find My Model →", type="primary")
 
