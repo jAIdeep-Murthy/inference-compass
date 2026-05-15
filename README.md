@@ -1,6 +1,6 @@
 # 🧭 Inference Compass — an opinionated model picker for open-source inference on Featherless AI
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](#)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://inference-compass.streamlit.app/)
 
 ## 🚨 Why It Exists
 
@@ -18,7 +18,7 @@ You can get Inference Compass running on your local machine in under two minutes
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/placeholder/inference_compass.git
+git clone https://github.com/jAIdeep-Murthy/inference-compass.git
 cd inference_compass
 ```
 
@@ -74,6 +74,7 @@ Deploying to Streamlit Cloud is completely free and takes under 5 minutes.
 
 **Jaideep Murthy**
 
-* GitHub: [github.com/placeholder](#)
-* LinkedIn: [linkedin.com/in/placeholder](#)
-* Twitter: [twitter.com/placeholder](#)**Live demo:** https://inference-compass.streamlit.app
+* GitHub: [github.com/jAIdeep-Murthy/inference-compass](https://github.com/jAIdeep-Murthy/inference-compass)
+* LinkedIn: [linkedin.com/in/jaideep-murthy](https://www.linkedin.com/in/jaideep-murthy/)
+* Twitter: [x.com/jaideepm_](https://x.com/jaideepm_)
+* **Live demo:** [inference-compass.streamlit.app](https://inference-compass.streamlit.app/)
